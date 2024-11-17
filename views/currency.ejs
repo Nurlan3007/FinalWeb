@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles/currency.css">
+    <title>Currency Conversion Rates</title>
+</head>
+<body>
+    <div class="currency_block">
+        <h1>Currency Conversion Rates</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Currency</th>
+                    <th>Rate (to USD)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% for (const [currency, rate] of Object.entries(rates)) { %>
+                    <tr>
+                        <td><%= currency %></td>
+                        <td><%= rate %></td>
+                    </tr>
+                <% } %>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

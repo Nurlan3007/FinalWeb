@@ -1,0 +1,36 @@
+
+body{
+    background: #e8e1e171;
+}
+
+h1{
+    text-align: center;
+    margin: 25px;
+}
+
+.new{
+    display: flex;
+    align-items: flex-start;
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 30px;
+    margin:20px 0;
+}
+
+.text{
+    text-align: center;
+    margin: 0 20px;
+}
+
+.news{
+    padding: 50px;
+    display: flex;
+    flex-direction:column;
+}
+
+img{
+    width: 400px;
+}
+
+
+

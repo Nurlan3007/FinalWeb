@@ -151,6 +151,8 @@ app.post('/create_post', upload.array('images', 3), async (req, res) => {
     }
 });
 
+
+
 app.get('/edit', async (req, res) => {
     _id = req.query.id;
     console.log(_id);
@@ -158,6 +160,44 @@ app.get('/edit', async (req, res) => {
     console.log(portfolioItem);
     res.render('edit', { portfolioItem });
 });
+
+app.post('/update_post', urlencodedParser ,async (req, res) => {
+    console.log(req.body);
+    _id = req.body.id;
+    const portfolio = await Portfolio.updateOne({_id : _id} , {$set: {title:req.body.title, description:req.body.description}});
+    // res.redirect("/");
+})
+
+
+
+// apis
+
+const axios = require('axios');
+const newsApiKey = '9b3398ff5d6a47e19b9f2dae64cd2357';  
+const currencyApiKey = '866153fa1ef35ba4aa41d764';  
+
+app.get('/news', async (req, res) => {
+    try {
+        const response = await axios.get(`https://newsapi.org/v2/top-headlines?country=us&apiKey=${newsApiKey}`);
+        const news = response.data.articles;
+        res.render('news', { news }); 
+    } catch (error) {
+        console.error('Error fetching news:', error);
+        res.status(500).send('Error fetching news');
+    }
+});
+
+app.get('/currency', async (req, res) => {
+    try {
+        const response = await axios.get(`https://v6.exchangerate-api.com/v6/${currencyApiKey}/latest/USD`);
+        const rates = response.data.conversion_rates;
+        res.render('currency', { rates });  
+    } catch (error) {
+        console.error('Error fetching currency data:', error);
+        res.status(500).send('Error fetching currency data');
+    }
+});
+
 
 
 PORT = 3000

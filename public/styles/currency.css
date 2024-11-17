@@ -1,0 +1,25 @@
+table{
+    border-collapse: collapse; 
+}
+
+
+tr td{
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-collapse: collapse;
+}
+
+body{
+    font-size: 20px;
+}
+
+h1{
+    text-align: center;
+}
+
+.currency_block{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles/main.css">
+    <link rel="stylesheet" href="/styles/news.css">
+    <title>News</title>
+</head>
+<body>
+    <h1>Latest News</h1>
+    <div class="news">
+        <% news.forEach(function(article) { %>
+            <div class="new">
+                <div class="block_img">
+                    <img src="<%= article.urlToImage %>" alt="Image" >
+                </div>
+                <div class="text">
+                    <h2><a href="<%= article.url %>" target="_blank"><%= article.title %></a></h2>
+                    <p><%= article.description %></p>
+                </div>
+                
+                <hr>
+            </div>
+        <% }); %>
+    </div>
+</body>
+</html>
