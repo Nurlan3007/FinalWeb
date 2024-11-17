@@ -1,0 +1,118 @@
+body{font-family: cursive;background: #f2f2f2;}
+.auth{
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.login, .sign_up{
+    width: 30%;
+    background: #fff;
+    box-shadow: 5px 5px 5px 0 #ccc;
+    border-radius: 30px;
+    padding: 90px 60px;
+    margin-right: 80px;
+    margin-bottom: 20px;
+}
+
+.login{
+    height: 100%;
+}
+
+h2{
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+}
+
+.form_group{
+    position: relative;
+    margin-top: 10px;
+    width: 100%;
+}
+
+.form_group img{
+    width: 25px;
+    position: absolute;
+    right: 10px ;
+    top: 20px;
+}
+
+.hide_pass1,.hide_pass2{
+    cursor: pointer;
+}
+
+.form_group input[type="text"],.form_group input[type="password"],.form_group input[type="email"]{
+    border:0;
+    margin-top: 5px;
+    width: 100%;
+    font-family: cursive;
+    padding: 3px 3px 3px 9px;
+    outline: none;
+    border-bottom:2px solid #c1c1c1;
+    font-size: 16px;
+}
+
+.form_group input:focus{
+    background-color: #fff;
+    border-bottom:2px solid #84a2da;
+}
+
+.submit{
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+}
+
+
+.submit input[type="submit"]{
+    background: #4970fd;
+    color:#fff;
+    cursor: pointer;
+    width: 50%;
+    font-family: cursive;
+    padding: 10px;
+    outline: none;
+    height: auto;
+    border:1px solid #c1c1c1;
+    border-radius: 15px;
+    font-size: 16px;
+}
+
+.acc{
+    margin-top: 10px;
+    text-align: center;
+    color:#878585;
+}
+
+
+.acc:hover{
+    color:#4970fd;
+}
+
+.gender_groups{
+    display: flex;
+    justify-content: space-between;
+}
+
+.submit input[type="submit"]:hover{
+    background: rgb(108, 82, 194);
+}
+
+@media (max-width: 864px) {
+    .login, .sign_up{
+        width: 100%;
+        margin: 10px;
+    }
+}
+
+@media (max-width: 450px) {
+    .login, .sign_up{
+        padding: 90px 20px;
+    }
+}

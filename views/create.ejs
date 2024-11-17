@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles/portfilio.css">
+    <title>Create Portfolio Item</title>
+</head>
+<body>
+    <h1>Create New Portfolio Item</h1>
+    <form action="/create_post" method="POST"  enctype="multipart/form-data">
+        <input type="text" name="title" placeholder="Title" required>
+        <textarea name="description" placeholder="Description" required></textarea>
+        <label for="images">Choose three images:</label>
+        <input type="file" name="images" id="images" multiple required><br><br>
+        <button type="submit">Create</button>
+    </form>
+    <a href="/">Back to Home</a>
+</body>
+</html>

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2FA Setup</title>
+</head>
+<body>
+    <h1>Настройка двухфакторной аутентификации</h1>
+    <p>Отсканируйте этот QR-код с помощью Google Authenticator или Authy:</p>
+    <img src="<%= qrCode %>" alt="QR Code">
+    <form action="/auth/verify_token" method="post">
+        <input type="text" name="token" placeholder="Введите код из приложения" required>
+        <button type="submit">Подтвердить</button>
+    </form>
+</body>
+</html>

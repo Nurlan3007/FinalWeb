@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <style>
+
+    </style>
+    <link rel="stylesheet" href="/styles/login.css">
+</head>
+<body>
+    <div class="auth">
+        <div class="sign_up">
+            <h2 class="lag-h2sign_up">Sign Up</h2>
+            <form action="/auth/sign_up_post" method="post">
+                <div class="errors">
+                    <p style="color:red;"><%= errors %></p>
+                </div>
+                <div class="form_group">
+                    <label for="" class="lag-login2">UserName</label>
+                    <input type="text" name="user_name">
+                </div>
+                <div class="form_group">
+                    <label for="" class="lag-password2">First Name</label>
+                    <input type="text" name="first_name" class="input_pass1">
+                </div>
+                <div class="form_group">
+                    <label for="" class="lag-password2">Last Name</label>
+                    <input type="text" name="last_name" class="input_pass1">
+                </div>
+                <div class="form_group">
+                    <label for="" class="lag-login2">age</label>
+                    <input type="text" name="age">
+                </div>
+                <div class="form_group">
+                    <label for="" class="lag-login2">Email</label>
+                    <input type="text" name="email">
+                </div>
+                <div class="form_group gender_groups">
+                    <label for="" class="lag-password2">Gender</label>
+                    <div class="gender_group">
+                        <label for="">Female</label>
+                        <input type="radio" id="female" name="gender"  value="female"/>
+                    </div>
+                    <div class="gender_group">
+                        <label for="">Male</label>
+                        <input type="radio" id="male" name="gender"  value="male"/>
+                    </div>
+                    <div class="gender_group">
+                        <label for="">other</label>
+                        <input type="radio" id="male" name="gender"  value="other"/>
+                    </div>
+                </div>
+                <div class="form_group">
+                    <label for="" class="lag-password2">Password</label>
+                    <input type="password" name="password" class="input_pass1">
+                    <img src="../imgs/icons8-показать-24.png" alt="" class="hide_pass1">
+                </div>
+                <div class="form_group submit">
+                    <input type="submit" value="Sign UP">
+                </div>
+                <a href="/auth/login" class="acc">Already have account?</a> 
+            </form>
+        </div>
+    <script>
+        let pass1 = document.querySelector(".hide_pass1");
+        let pass2 = document.querySelector(".hide_pass2");
+
+        pass1.addEventListener("click", function(){
+            let input_pass = document.querySelector(".input_pass1");
+            let img = document.querySelector(".hide_pass1");
+            if(input_pass.type == "password"){
+                input_pass.type = "text";
+                img.src = "../imgs/icons8-показать-25.png";
+            }else{
+                input_pass.type = "password";
+                img.src = "../imgs/icons8-показать-24.png";
+            }
+        });
+    </script>
+</body>
+</html>

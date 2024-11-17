@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Создайте своё портфолио и покажите свои работы миру!">
+    <title>Creating a Portfolio Platform</title>
+    <link rel="stylesheet" href="/styles/main.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="head__values">
+                <h1>Portfolio Platform</h1>
+                <nav>
+                    <ul>
+                        <li><a href="#home">Main</a></li>
+                        <li><a href="#about">About us</a></li>
+                        <li><a href="#portfolio">Portfolio</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                        <% if (userA) { %>
+                            <li><a href=""><%= userA.username %>!</a></li>
+                            <li><a href="/logout">Exit</a></li>
+                        <% } else { %>
+                            <li><a href="/auth/login">Login</a></li>
+                        <% } %>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <div class="container">
+        <section id="home">
+            <h2>Добро пожаловать на платформу портфолио</h2>
+            <p>Создайте своё уникальное портфолио и делитесь своими проектами с миром!</p>
+            <a href="/create">Создать портфолио</a>
+        </section>
+            <%count=1%>
+            <% for(let i = 0; i < portfolioItems.length; i++){ %>
+               
+                <% let size_imgs = portfolioItems[i]['images'].length %>
+                <div class="portofolio">
+                    <section class="portfolio-carousel">
+                        <h2>Проекты <%=count%></h2>
+                        <div class="carousel-container" id="carousel-<%=count%>">
+                            <% for(let j = 0; j < portfolioItems.length; j++){ %>
+                                <div class="carousel-slide"><img src="<%=portfolioItems[i]['images'][j]%>" alt=""><p>Описание 1</p></div>
+                            <% } %>
+                        </div>
+                        <button class="prev-btn" data-carousel="carousel-<%=count%>">❮</button>
+                        <button class="next-btn" data-carousel="carousel-<%=count%>">❯</button>
+                    </section>
+                    <div class="title">
+                        <h3><%=portfolioItems[i]['title'] %></h3>
+                    </div>
+                    <div class="desc">
+                        <p><%=portfolioItems[i]['description'] %></p>
+                    </div>
+                    <%if(userA){%>
+                        <%if(userA.role == "Admin"){%>
+                            <a href="">Delete</a>
+                            <a href="/edit?id=<%=portfolioItems._id%>">Edit</a>
+                        <%}%>
+                    <%}%>
+                </div>
+
+                <%count++%>
+            <% } %>
+
+            
+            <div class="portofolio">
+                <section class="portfolio-carousel">
+                    <h2>Проекты 2</h2>
+                    <div class="carousel-container" id="carousel-12">
+                        <div class="carousel-slide"><img src="/imgs/intercontinental-almaty-9686284506-2x1.jpg" alt=""><p>Описание 1</p></div>
+                        <div class="carousel-slide"><img src="/imgs/intercontinental-almaty-9686284506-2x1.jpg" alt=""><p>Описание 2</p></div>
+                    </div>
+                    <button class="prev-btn" data-carousel="carousel-12">❮</button>
+                    <button class="next-btn" data-carousel="carousel-12">❯</button>
+                </section>
+                <div class="title">
+                    <h3>Almaty</h3>
+                </div>
+                <div class="desc">
+                    <p style="">This is one of the oldest cities in Central Asia. Its origin dates back to the Bronze Age — the 10th-9th centuries BC. It was during this period that the first settlements of farmers and cattle breeders appeared in the foothills of the Zailiyskiy Alatau. In the 10th century, Almaty (translated from Kazakh as “apple”) became an important trade and craft center on the Great Silk Road (it even had its own mint). But after the Mongol conquest, an aul stood on the site of the city. The modern history of Almaty began in the middle of the 19th century.
+                        In 1854, the authorities of the Russian Empire founded a military fortification on the bank of the Malaya Almatinka. By 1867, it had grown into a city — Verny. Over the years, a brewery, a cloth factory, and a tobacco factory appeared there. Verny had a male and female gymnasium, vocational schools, and primary education could be obtained in madrassas at mosques and in church parish schools. After a strong earthquake in 1887, a seismic station appeared in the city, and seismic hazard began to be taken into account during construction. By 1913, there were 59 enterprises and more than 40 thousand people lived here.</p>
+                </div>
+            </div>
+        
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Portfolio Platform. Все права защищены.</p>
+        <div class="social-links">
+            <a href="">
+                NURLAN MARAT
+                BDA-2302
+            </a>
+        </div>
+    </footer>
+
+    <script>
+        document.querySelectorAll('.prev-btn').forEach(button => {
+    button.addEventListener('click', () => {
+        const carouselId = button.getAttribute('data-carousel');
+        const carousel = document.getElementById(carouselId);
+        const slides = carousel.querySelectorAll('.carousel-slide');
+        let currentIndex = parseInt(carousel.getAttribute('data-index')) || 0;
+
+        currentIndex = (currentIndex > 0) ? currentIndex - 1 : slides.length - 1;
+        carousel.style.transform = `translateX(${-currentIndex * 100}%)`;
+        carousel.setAttribute('data-index', currentIndex);
+    });
+});
+
+document.querySelectorAll('.next-btn').forEach(button => {
+    button.addEventListener('click', () => {
+        const carouselId = button.getAttribute('data-carousel');
+        const carousel = document.getElementById(carouselId);
+        const slides = carousel.querySelectorAll('.carousel-slide');
+        let currentIndex = parseInt(carousel.getAttribute('data-index')) || 0;
+
+        currentIndex = (currentIndex < slides.length - 1) ? currentIndex + 1 : 0;
+        carousel.style.transform = `translateX(${-currentIndex * 100}%)`;
+        carousel.setAttribute('data-index', currentIndex);
+    });
+});
+
+    </script>
+</body>
+</html>
+

@@ -1,0 +1,163 @@
+/* Основные стили */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+    padding: 20px;
+}
+
+/* Стили для заголовка и ссылок */
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #3a3a3a;
+}
+
+a {
+    text-decoration: none;
+    color: #007bff;
+    font-weight: bold;
+}
+
+a:hover {
+    color: #0056b3;
+}
+
+/* Кнопки */
+button {
+    padding: 10px 20px;
+    background-color: #4970fd;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Стили для контейнера портфолио */
+.portfolio-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.portfolio-item {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    padding: 20px;
+    text-align: center;
+}
+
+.portfolio-item h2 {
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.portfolio-item p {
+    margin-bottom: 10px;
+    color: #555;
+}
+
+/* Стили для карусели изображений */
+.carousel {
+    display: flex;
+    gap: 5px;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.carousel img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+/* Стили для форм */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+input[type="text"],
+textarea {
+    border:0;
+    margin-top: 5px;
+    width: 100%;
+    font-family: cursive;
+    padding: 3px 3px 3px 9px;
+    outline: none;
+    border-bottom:2px solid #c1c1c1;
+    font-size: 16px;
+}
+
+textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+input:focus{
+    background-color: #fff;
+    border-bottom:2px solid #84a2da;
+}
+
+/* Стиль ссылок для создания и редактирования элементов */
+.create-link,
+.edit-link {
+    display: block;
+    margin: 10px 0;
+    padding: 10px;
+    text-align: center;
+    background-color: #28a745;
+    color: #fff;
+    border-radius: 5px;
+}
+
+.create-link:hover,
+.edit-link:hover {
+    background-color: #218838;
+}
+
+/* Уведомления об ошибках и успехах */
+.alert {
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.alert-success {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.alert-error {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+/* Нижний колонтитул (footer) */
+footer {
+    text-align: center;
+    margin-top: 40px;
+    padding: 10px;
+    background-color: #333;
+    color: #fff;
+    border-radius: 5px;
+}

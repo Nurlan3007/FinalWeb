@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <style>
+
+    </style>
+    <link rel="stylesheet" href="/styles/login.css">
+</head>
+<body>
+    <div class="auth">
+        <div class="login">
+            <h2 class="lag-h2login">Login</h2>
+            <form action="/login_post" method="post">
+                <div class="form_group">
+                    <label for="" class="lag-email1">email</label>
+                    <input type="email" name="email">
+                    <img src="../imgs/icons8-тестовый-аккаунт-30.png" alt="">
+                </div>
+                <div class="form_group">
+                    <label for="" class="lag-password1">Password</label>
+                    <input type="password" name="password" class="input_pass1">
+                    <img src="../imgs/icons8-показать-24.png" alt="" class="hide_pass1">
+                </div>
+                <div class="form_group submit">
+                    <input type="submit" value="Login">
+                </div>
+                <a href="/auth/sign_up" class="acc">Do not have account?</a> 
+            </form>
+            
+        </div>
+    <script>
+        let pass1 = document.querySelector(".hide_pass1");
+        let pass2 = document.querySelector(".hide_pass2");
+
+        pass1.addEventListener("click", function(){
+            let input_pass = document.querySelector(".input_pass1");
+            let img = document.querySelector(".hide_pass1");
+            if(input_pass.type == "password"){
+                input_pass.type = "text";
+                img.src = "../imgs/icons8-показать-25.png";
+            }else{
+                input_pass.type = "password";
+                img.src = "../imgs/icons8-показать-24.png";
+            }
+        });
+    </script>
+</body>
+</html>
