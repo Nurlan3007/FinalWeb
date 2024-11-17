@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <style>
+
+    </style>
+    <link rel="stylesheet" href="/styles/portfilio.css">
+</head>
+<body>
+    <h1>Edit Portfolio Item</h1>
+    <form action="/create_post" method="POST"  enctype="multipart/form-data">
+        <input type="text" name="title" placeholder="Title" value="<%=portfolioItem%>" required>
+        <textarea name="description" placeholder="Description" required></textarea>
+        <label for="images">Choose three images:</label>
+        <input type="file" name="images" id="images" multiple required><br><br>
+        <button type="submit">Edit</button>
+    </form>
+</body>
+</html>

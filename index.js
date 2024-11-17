@@ -151,7 +151,13 @@ app.post('/create_post', upload.array('images', 3), async (req, res) => {
     }
 });
 
-
+app.get('/edit', async (req, res) => {
+    _id = req.query.id;
+    console.log(_id);
+    const portfolioItem = await Portfolio.find({_id});
+    console.log(portfolioItem);
+    res.render('edit', { portfolioItem });
+});
 
 
 PORT = 3000

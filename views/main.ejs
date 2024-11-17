@@ -61,7 +61,7 @@
                     <%if(userA){%>
                         <%if(userA.role == "Admin"){%>
                             <a href="">Delete</a>
-                            <a href="/edit?id=<%=portfolioItems._id%>">Edit</a>
+                            <a href="/edit?id=<%=portfolioItems[i]['_id']%>">Edit</a>
                         <%}%>
                     <%}%>
                 </div>
